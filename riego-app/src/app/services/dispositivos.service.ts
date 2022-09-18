@@ -11,7 +11,7 @@ export class DispositivoService{
         this.dispositivos.push(new Dispositivo(4, "prueba4", "prueba ubicacion4", 114))
     }
 
-    getDispositivo(id: number){
+    getDispositivo(id: number) : Dispositivo {
         return this.dispositivos.filter(dispositivo => dispositivo.dispositivoId == id)[0]
     }
 }

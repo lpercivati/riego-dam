@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dispositivo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+      <ion-card-title>Dispositivo {{dispositivo.nombre}} - ID {{dispositivo.dispositivoId}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label> Ubicación: {{dispositivo.ubicacion}} </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> Valvula: {{dispositivo.valvulaId}} </ion-label>
+        <ion-button fill="outline">Abrir válvula</ion-button>
+        <ion-button fill="outline">Ver más detalles</ion-button>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mediciones del dispositivo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let medicion of mediciones">
+        <ion-label> Fecha: {{medicion.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Medicion: {{medicion.medicion}} Db </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
