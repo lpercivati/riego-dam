@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'dispositivo/:id',
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
+  {
+    path: 'valvula/:id',
+    loadChildren: () => import('./valvula/valvula.module').then( m => m.ValvulaPageModule)
+  },
 ];
 
 @NgModule({

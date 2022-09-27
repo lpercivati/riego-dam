@@ -18,7 +18,8 @@
       <ion-item>
         <ion-label> Valvula: {{dispositivo.valvulaId}} </ion-label>
         <ion-button fill="outline">Abrir válvula</ion-button>
-        <ion-button fill="outline">Ver más detalles</ion-button>
+        <ion-button fill="outline">Cerrar válvula</ion-button>
+        <ion-button fill="outline" routerLink="/valvula/{{dispositivo.valvulaId}}" routerDirection="root">Ver más detalles</ion-button>
       </ion-item>
 
     </ion-card-content>
