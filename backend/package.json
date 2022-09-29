@@ -1,0 +1,14 @@
+{
+  "name": "riego-back",
+  "version": "1.0.0",
+  "description": "backend de riego",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lpercivati",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
