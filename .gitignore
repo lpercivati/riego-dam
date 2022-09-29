@@ -2,3 +2,4 @@ frontend/node_modules
 frontend/.angular/cache
 backend/node_modules
 /node_modules
+db/data

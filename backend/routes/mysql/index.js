@@ -5,7 +5,7 @@ var configSql = {
     port: "3306",
     user: "root",
     password: "userpass",
-    database: "smart_home"
+    database: "DAM"
 };
 
 const poolConexions = mysql.createPool(configSql);
@@ -19,6 +19,7 @@ poolConexions.getConnection((err, connection) => {
                 console.error("Se perdió conexion a la BDD.")
                 break;
             case "ECONNREFUSED":
+                console.log(err)
                 console.error("Conexion BDD rechazada.")
                 break;
             case "ER_CON_COUNT_ERROR":
@@ -31,6 +32,7 @@ poolConexions.getConnection((err, connection) => {
     }
 
     if(connection){
+        console.log("BDD conectada")
         connection.release();
     }
 
