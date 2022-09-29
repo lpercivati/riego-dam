@@ -1,9 +1,18 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
+
 var routerDisp = require("./routes/dispositivo")
+var corsOptions = {
+    origin: "*",
+    optionSuccessStatus: 200
+};
 
 //Conversion de body desde json
 app.use(express.json());
+
+//middlewar cors
+app.use(cors(corsOptions));
 
 //Importacion de routers
 app.use("/dispositivo", routerDisp)

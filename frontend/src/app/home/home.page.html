@@ -14,7 +14,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item *ngFor="let dispositivo of dispositivoService.dispositivos" routerLink="/dispositivo/{{dispositivo.dispositivoId}}" routerDirection="root">
+    <ion-item *ngFor="let dispositivo of this.dispositivos" routerLink="/dispositivo/{{dispositivo.dispositivoId}}" routerDirection="root">
       <ion-card>
         <ion-card-header>
           <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
