@@ -21,7 +21,7 @@ export class DispositivoPage implements OnInit {
 
     this.dispositivoService.getDispositivo(parseInt(idDispositivo)).then((result) => {
       debugger;
-      this.dispositivo = result
+      this.dispositivo = result[0]
     });
 
     this.medicionService.listMediciones(parseInt(idDispositivo)).then((result)=>{
