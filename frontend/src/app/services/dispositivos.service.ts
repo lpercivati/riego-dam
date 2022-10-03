@@ -12,7 +12,7 @@ export class DispositivoService{
     constructor(public _http:HttpClient){}
 
     getDispositivos() : Promise<Array<Dispositivo>> {
-        return this._http.get<Array<Dispositivo>>("localhost:3300/dispositivos").toPromise();
+        return this._http.get<Array<Dispositivo>>("localhost:8000/dispositivos").toPromise();
     }
 
     getDispositivo(id: number) : Dispositivo {
