@@ -7,10 +7,12 @@ import { Medicion } from "../model/medicion";
 })
 
 export class MedicionService{
+    private BASE_PATH ="http://localhost:8000/medicion"
+
     constructor(public _http:HttpClient){}
 
     listMediciones(dispositivoId: number) : Promise<Array<Medicion>> {
-        return this._http.get<Array<Medicion>>("http://localhost:8000/medicion/" + dispositivoId).toPromise();
+        return this._http.get<Array<Medicion>>(this.BASE_PATH + "/" + dispositivoId).toPromise();
     }
 
 }

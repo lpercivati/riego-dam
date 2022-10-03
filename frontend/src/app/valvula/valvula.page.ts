@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Log } from '../model/log';
-import { LogService } from '../services/log.service';
+import { ValvulaService } from '../services/valvula.service';
 
 
 @Component({
@@ -12,12 +12,12 @@ import { LogService } from '../services/log.service';
 export class ValvulaPage implements OnInit {
 
   public logs : Array<Log> = new Array<Log>();
-  constructor(private router:ActivatedRoute, private logService:LogService) { }
+  constructor(private router:ActivatedRoute, private valvulaService:ValvulaService) { }
 
   ngOnInit() {
     let electroValvulaId = this.router.snapshot.paramMap.get('id');
 
-    this.logService.listLogs(parseInt(electroValvulaId)).then((result) => {
+    this.valvulaService.listLogs(parseInt(electroValvulaId)).then((result) => {
       this.logs = result
     });
   }

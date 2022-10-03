@@ -17,7 +17,8 @@
         <ion-label> Ubicación: {{dispositivo.ubicacion}} </ion-label>
       </ion-item>-->
       <ion-item>
-        <ion-button fill="outline">Abrir electroválvula</ion-button>
+        <ion-button fill="outline" *ngIf="!ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
+        <ion-button fill="outline" *ngIf="ultimoLog.apertura" (click)="cerrarValvula()">Cerrar electroválvula</ion-button>
       </ion-item>
       <ion-item>
         <ion-button fill="outline" routerLink="../../valvula/{{dispositivo.electrovalvulaId}}" routerDirection="root">Ver todas las mediciones</ion-button>

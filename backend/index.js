@@ -17,9 +17,11 @@ app.use(express.json());
 //Importacion de routers
 var routerDisp = require("./routes/dispositivo")
 var routerMedicion = require("./routes/medicion")
+var routerValvula = require("./routes/valvula")
 
 app.use("/dispositivo", routerDisp)
 app.use("/medicion", routerMedicion)
+app.use("/valvula", routerValvula)
 
 var logger = function(req, res, next){
     console.log("Logger api - " + new Date());
