@@ -5,7 +5,7 @@ const cors = require('cors')
 var routerDisp = require("./routes/dispositivo")
 var corsOptions = {
     origin: "*",
-    optionSuccessStatus: 200
+    optionsSuccessStatus: 200
 };
 
 //Conversion de body desde json

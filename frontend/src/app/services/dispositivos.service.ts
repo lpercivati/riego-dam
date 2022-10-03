@@ -12,7 +12,11 @@ export class DispositivoService{
     constructor(public _http:HttpClient){}
 
     getDispositivos() : Promise<Array<Dispositivo>> {
-        return this._http.get<Array<Dispositivo>>("localhost:8000/dispositivos").toPromise();
+        var dispositivos = new Array<Dispositivo>();
+        dispositivos.push(new Dispositivo(1, 'Sensor 1', 'Patio', 1));
+
+        //return Promise.all(dispositivos);
+        return this._http.get<Array<Dispositivo>>("http://localhost:8000/dispositivo").toPromise();
     }
 
     getDispositivo(id: number) : Dispositivo {
