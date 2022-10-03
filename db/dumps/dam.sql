@@ -28,6 +28,14 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Electrovalvulas` (
   PRIMARY KEY (`electrovalvulaId`))
 ENGINE = InnoDB;
 
+INSERT INTO `Electrovalvulas` (`electrovalvulaId`, `nombre`) VALUES
+(1, 'eLPatio'),
+(2, 'eLCocina'),
+(3, 'eLJardinDelantero'),
+(4, 'eLLiving'),
+(5, 'eLHabitacion1'),
+(6, 'eLHabitacion2');
+
 
 -- -----------------------------------------------------
 -- Table `DAM`.`Dispositivos`
@@ -48,6 +56,13 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Dispositivos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `Dispositivos` (`dispositivoId`, `nombre`, `ubicacion`, `electrovalvulaId`) VALUES
+(1, 'Sensor 1', 'Patio', 1),
+(2, 'Sensor 2', 'Cocina', 2),
+(3, 'Sensor 3', 'Jardin Delantero', 3),
+(4, 'Sensor 4', 'Living', 4),
+(5, 'Sensor 5', 'Habitacion 1', 5),
+(6, 'Sensor 6', 'Habitacion 2', 6);
 
 -- -----------------------------------------------------
 -- Table `DAM`.`Mediciones`
@@ -68,6 +83,18 @@ CREATE TABLE IF NOT EXISTS `DAM`.`Mediciones` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `Mediciones` (`medicionId`, `fecha`, `valor`, `dispositivoId`) VALUES
+(1, '2020-11-26 21:19:41', '60', 1),
+(2, '2020-11-26 21:19:41', '40', 1),
+(3, '2020-11-26 21:19:41', '30', 2),
+(4, '2020-11-26 21:19:41', '50', 3),
+(5, '2020-11-26 21:19:41', '33', 5),
+(6, '2020-11-26 21:19:41', '17', 4),
+(7, '2020-11-26 21:19:41', '29', 6),
+(8, '2020-11-26 21:19:41', '20', 1),
+(9, '2020-11-26 21:19:41', '44', 4),
+(10, '2020-11-26 21:19:41', '61', 5),
+(11, '2020-11-26 21:19:41', '12', 2);
 
 -- -----------------------------------------------------
 -- Table `DAM`.`Log_Riegos`

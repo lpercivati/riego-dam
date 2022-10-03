@@ -12,7 +12,7 @@ var corsOptions = {
 app.use(express.json());
 
 //middlewar cors
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 //Importacion de routers
 app.use("/dispositivo", routerDisp)
