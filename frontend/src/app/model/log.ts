@@ -1,8 +1,8 @@
-export class Medicion {
-    public Id : number
-    public dispositivoId : number
+export class Log {
+    public logRiegoId : number
+    public apertura : boolean
     public fecha: Date
-    public medicion: number
+    public electrovalvulaId: number
 
 //    constructor(dispositivoId: number, fecha: Date, medicion: number){
 //        this.Id = Math.random()

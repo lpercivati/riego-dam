@@ -7,8 +7,6 @@ import { Medicion } from "../model/medicion";
 })
 
 export class MedicionService{
-    mediciones : Array<Medicion> = new Array<Medicion>();
-
     constructor(public _http:HttpClient){}
 
     listMediciones(dispositivoId: number) : Promise<Array<Medicion>> {

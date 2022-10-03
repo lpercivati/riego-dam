@@ -13,7 +13,6 @@ import { MedicionService } from '../services/medicion.service';
 export class DispositivoPage implements OnInit {
 
   public dispositivo: Dispositivo
-  //public mediciones:Array<Medicion> = new Array<Medicion>()
   public ultimaMedicion:Medicion
   constructor(private router:ActivatedRoute, private dispositivoService:DispositivoService, private medicionService:MedicionService) { }
 
@@ -21,6 +20,7 @@ export class DispositivoPage implements OnInit {
     let idDispositivo = this.router.snapshot.paramMap.get('id');
 
     this.dispositivoService.getDispositivo(parseInt(idDispositivo)).then((result) => {
+      debugger;
       this.dispositivo = result
     });
 
