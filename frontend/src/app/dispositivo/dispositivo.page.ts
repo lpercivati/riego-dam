@@ -13,14 +13,23 @@ import { MedicionService } from '../services/medicion.service';
 export class DispositivoPage implements OnInit {
 
   public dispositivo: Dispositivo
-  public mediciones:Array<Medicion> = new Array<Medicion>()
+  //public mediciones:Array<Medicion> = new Array<Medicion>()
+  public ultimaMedicion:Medicion
   constructor(private router:ActivatedRoute, private dispositivoService:DispositivoService, private medicionService:MedicionService) { }
 
   ngOnInit() {
     let idDispositivo = this.router.snapshot.paramMap.get('id');
-    this.dispositivo = this.dispositivoService.getDispositivo(parseInt(idDispositivo));
-    this.mediciones = this.medicionService.listMediciones(parseInt(idDispositivo));
-    console.log(this.mediciones);
+
+    this.dispositivoService.getDispositivo(parseInt(idDispositivo)).then((result) => {
+      this.dispositivo = result
+    });
+
+    this.medicionService.listMediciones(parseInt(idDispositivo)).then((result)=>{
+      this.ultimaMedicion = result[0]
+    })
+    .catch((err)=> {
+      console.log(err)
+    })
   }
 
 }

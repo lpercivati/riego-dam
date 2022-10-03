@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   constructor(public dispositivoService: DispositivoService){}
  
   ngOnInit(): void {
-    this.dispositivoService.getDispositivos().then((result)=>{
+    this.dispositivoService.listDispositivos().then((result)=>{
       this.dispositivos = result
     })
     .catch((err)=> {

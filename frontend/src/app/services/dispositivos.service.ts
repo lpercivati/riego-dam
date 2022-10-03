@@ -9,18 +9,15 @@ import { Dispositivo } from "../model/dispositivo";
 
 export class DispositivoService{
 
+    private BASE_PATH ="http://localhost:8000/dispositivo"
+
     constructor(public _http:HttpClient){}
 
-    getDispositivos() : Promise<Array<Dispositivo>> {
-        var dispositivos = new Array<Dispositivo>();
-        dispositivos.push(new Dispositivo(1, 'Sensor 1', 'Patio', 1));
-
-        //return Promise.all(dispositivos);
-        return this._http.get<Array<Dispositivo>>("http://localhost:8000/dispositivo").toPromise();
+    listDispositivos() : Promise<Array<Dispositivo>> {
+        return this._http.get<Array<Dispositivo>>(this.BASE_PATH).toPromise();
     }
 
-    getDispositivo(id: number) : Dispositivo {
-        //return this.dispositivos.filter(dispositivo => dispositivo.dispositivoId == id)[0]
-        return new Dispositivo(2, "prueba2", "prueba ubicacion2", 112)
+    getDispositivo(id: number) : Promise<Dispositivo> {
+        return this._http.get<Dispositivo>(this.BASE_PATH + "/" + id).toPromise();
     }
 }

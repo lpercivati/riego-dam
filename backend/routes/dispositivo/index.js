@@ -9,4 +9,12 @@ routerDispositivo.get("/", function(req, res){
     })
 })
 
+routerDispositivo.get("/:id", function(req, res){
+
+    sql.query("Select * from Dispositivos where dispositivoId=?", [req.params.id], 
+        function(error, result, fields){
+        res.send(result);
+    })
+})
+
 module.exports=routerDispositivo
