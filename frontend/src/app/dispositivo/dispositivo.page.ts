@@ -14,9 +14,9 @@ import { ValvulaService } from '../services/valvula.service';
 })
 export class DispositivoPage implements OnInit {
 
-  public dispositivo: Dispositivo
-  public ultimaMedicion:Medicion
-  public ultimoLog:Log
+  public dispositivo: Dispositivo;
+  public ultimaMedicion:Medicion;
+  public ultimoLog:Log;
 
   constructor(
     private router:ActivatedRoute, 
@@ -45,13 +45,19 @@ export class DispositivoPage implements OnInit {
 
   abrirValvula(){
     this.valvulaService.cambiarEstado(this.dispositivo.electrovalvulaId, true).then((result) => {
-      debugger;
+      this.valvulaService.listLogs(this.dispositivo.electrovalvulaId).then((result)=>{
+        this.ultimoLog = result[0]
+      })
     })
   }
 
   cerrarValvula(){
     this.valvulaService.cambiarEstado(this.dispositivo.electrovalvulaId, false).then((result) => {
-      debugger;
+      this.medicionService.crearMedicion(Number(this.ultimaMedicion.valor) - 10,this.dispositivo.dispositivoId).then((result) => {
+        this.valvulaService.listLogs(this.dispositivo.electrovalvulaId).then((result)=>{
+          this.ultimoLog = result[0]
+        })
+      })
     })
   }
 
