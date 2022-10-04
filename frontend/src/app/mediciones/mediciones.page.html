@@ -7,11 +7,11 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Logs de la válvula</ion-card-title>
+      <ion-card-title>Mediciones del dispositivo</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item *ngFor="let log of logs">
-        <ion-label> Fecha: {{log.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Apertura: {{log.apertura ? 'Abierta' : 'Cerrada'}} </ion-label>
+      <ion-item *ngFor="let medicion of mediciones">
+        <ion-label> Fecha: {{medicion.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Medicion: {{medicion.valor}} Db </ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>

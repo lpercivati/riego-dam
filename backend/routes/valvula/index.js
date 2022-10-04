@@ -6,8 +6,6 @@ routerValvula.post("/log", function(req, res){
 
     sql.query("INSERT into Log_Riegos (apertura, fecha, electrovalvulaId) values (?, ?, ?)", [req.body.nuevoEstado, new Date(), req.body.electroValvulaId],
     function(error, result, fields){
-        console.log(result)
-        console.log(error)
         res.send(result);
     })
 })

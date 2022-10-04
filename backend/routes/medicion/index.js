@@ -13,7 +13,7 @@ routerMedicion.get("/:dispositivoId", function(req, res){
 routerMedicion.post("/", function(req, res){
 
     sql.query("INSERT into Mediciones (fecha, valor, dispositivoId) values (?, ?, ?)", 
-        [new Date(), req.body.valor, req.body.valor],
+        [new Date(), req.body.valor, req.body.dispositivoId],
     function(error, result, fields){
         res.send(result);
     })

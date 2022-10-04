@@ -1,24 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dispositivo</ion-title>
+    <ion-title>Riego App<ion-icon name="home" routerLink="../../" routerDirection="root" style="margin-left: 10px;"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="dispositivo != null">
+  <ion-card *ngIf="dispositivo">
     <ion-card-header>
-      <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
       <ion-card-title>Dispositivo {{this.dispositivo.nombre}} - ID {{dispositivo.dispositivoId}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <div id="highcharts" style="width:100%; height:300px;"></div>
       <ion-item>
-        <ion-button fill="outline" *ngIf="!ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
-        <ion-button fill="outline" *ngIf="ultimoLog.apertura" (click)="cerrarValvula()">Cerrar electroválvula</ion-button>
+        <ion-button fill="outline" *ngIf="!ultimoLog || !ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
+        <ion-button fill="outline" *ngIf="ultimoLog && ultimoLog.apertura" (click)="cerrarValvula()">Cerrar electroválvula</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button fill="outline" routerLink="../../valvula/{{dispositivo.electrovalvulaId}}" routerDirection="root">Ver todas las mediciones</ion-button>
+        <ion-button fill="outline" routerLink="../../mediciones/{{dispositivo.dispositivoId}}" routerDirection="root">Ver todas las mediciones</ion-button>
       </ion-item>
       <ion-item>
         <ion-button fill="outline" routerLink="../../valvula/{{dispositivo.electrovalvulaId}}" routerDirection="root">Ver log riegos</ion-button>
@@ -26,15 +25,4 @@
       
     </ion-card-content>
   </ion-card>
-
-  <!--<ion-card>
-    <ion-card-header>
-      <ion-card-title>Mediciones del dispositivo</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item *ngFor="let medicion of mediciones">
-        <ion-label> Fecha: {{medicion.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Medicion: {{medicion.medicion}} Db </ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card> -->
 </ion-content>

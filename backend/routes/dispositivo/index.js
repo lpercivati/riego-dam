@@ -13,7 +13,6 @@ routerDispositivo.get("/:id", function(req, res){
 
     sql.query("Select * from Dispositivos where dispositivoId=?", [req.params.id], 
         function(error, result, fields){
-            console.log(result)
         res.send(result);
     })
 })
