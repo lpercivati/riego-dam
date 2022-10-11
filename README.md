@@ -14,6 +14,8 @@ docker-compose up
 
 En carpeta /frontend:
 ```bash
+npm i
+npm install --save highcharts
 ionic serve
 ```
 
