@@ -5,13 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="dispositivo">
-    <ion-card-header>
+  <ion-card>
+    <ion-card-header *ngIf="dispositivo">
       <ion-card-title>Dispositivo {{this.dispositivo.nombre}} - ID {{dispositivo.dispositivoId}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <div id="highcharts" style="width:100%; height:300px;"></div>
+    </ion-card-content>
+    <ion-card-content *ngIf="dispositivo">
       <ion-item>
         <ion-button fill="outline" *ngIf="!ultimoLog || !ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
         <ion-button fill="outline" *ngIf="ultimoLog && ultimoLog.apertura" (click)="cerrarValvula()">Cerrar electroválvula</ion-button>

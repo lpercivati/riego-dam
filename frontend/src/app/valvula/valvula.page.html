@@ -11,7 +11,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item *ngFor="let log of logs">
-        <ion-label> Fecha: {{log.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Apertura: {{log.apertura ? 'Abierta' : 'Cerrada'}} </ion-label>
+        <ion-label> Fecha: {{log.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - <strong>{{log.apertura ? 'Abierta' : 'Cerrada'}} </strong></ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>

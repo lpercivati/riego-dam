@@ -17,6 +17,7 @@ export class DetalleSensorPage implements OnInit {
   private chartOptions;
 
   constructor() { 
+    debugger;
     setTimeout(()=>{
       console.log("Cambio el valor del sensor");
       this.valorObtenido=60;
@@ -32,6 +33,7 @@ export class DetalleSensorPage implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
     this.generarChart();
   }
 
