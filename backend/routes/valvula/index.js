@@ -3,6 +3,9 @@ var routerValvula = express.Router();
 const sql = require("../mysql")
 
 routerValvula.post("/log", function(req, res){
+    if(req.body.electroValvulaId < 1) {
+        res.status(400).send(error)
+    }
 
     sql.query("INSERT into Log_Riegos (apertura, fecha, electrovalvulaId) values (?, ?, ?)", [req.body.nuevoEstado, new Date(), req.body.electroValvulaId],
     function(error, result, fields){

@@ -23,12 +23,6 @@ app.use("/dispositivo", routerDisp)
 app.use("/medicion", routerMedicion)
 app.use("/valvula", routerValvula)
 
-var logger = function(req, res, next){
-    console.log("Logger api - " + new Date());
-    next();
-}
-//app.use(logger);
-
 app.listen(3000, function(req, res){
     console.log("Api funcionando")
 })
