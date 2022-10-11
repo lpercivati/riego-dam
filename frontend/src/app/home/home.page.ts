@@ -10,6 +10,8 @@ import { DispositivoService } from '../services/dispositivos.service';
 export class HomePage implements OnInit {
 
   dispositivos : Array<Dispositivo> = new Array<Dispositivo>();
+  public hayError: boolean = false;
+  
   constructor(public dispositivoService: DispositivoService){}
  
   ngOnInit(): void {
@@ -17,7 +19,7 @@ export class HomePage implements OnInit {
       this.dispositivos = result
     })
     .catch((err)=> {
-      console.log(err)
+      this.hayError = true;
     })
   }
 }

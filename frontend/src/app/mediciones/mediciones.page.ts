@@ -11,6 +11,7 @@ import { MedicionService } from '../services/medicion.service';
 export class MedicionesPage implements OnInit {
 
   public mediciones : Array<Medicion> = new Array<Medicion>();
+  public hayError: boolean = false;
 
   constructor(private router:ActivatedRoute, private medicionService:MedicionService) { }
 
@@ -19,7 +20,10 @@ export class MedicionesPage implements OnInit {
 
     this.medicionService.listMediciones(parseInt(dispositivoId)).then((result) => {
       this.mediciones = result
-    });
+    }).catch((err)=> {
+      this.hayError = true;
+    })
+    ;
   }
 
 }

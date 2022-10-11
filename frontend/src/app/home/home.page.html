@@ -10,12 +10,13 @@
       <ion-title>Riego App<ion-icon name="home" style="margin-left: 10px;"></ion-icon></ion-title>
     </ion-toolbar>
   </ion-header>
-
+  <ion-item *ngIf="hayError">
+    <ion-badge color="danger">Ocurrió un error</ion-badge>
+  </ion-item>
   <ion-list>
     <ion-item *ngFor="let dispositivo of this.dispositivos" routerLink="/dispositivo/{{dispositivo.dispositivoId}}" routerDirection="root">
       <ion-card>
         <ion-card-header>
-          <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
           <ion-card-title>Dispositivo {{dispositivo.nombre}} - ID {{dispositivo.dispositivoId}}</ion-card-title>
         </ion-card-header>
       

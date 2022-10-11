@@ -22,6 +22,7 @@ export class DispositivoPage implements OnInit {
   public ultimaMedicion:Medicion;
   public ultimoLog:Log;
   public myChart;
+  public hayError: boolean = false;
 
   constructor(
     private router:ActivatedRoute, 
@@ -45,6 +46,9 @@ export class DispositivoPage implements OnInit {
         this.ultimaMedicion = result[0]
         this.actualizarValor(parseInt(this.ultimaMedicion.valor));
       })
+    })
+    .catch((error) => {
+      this.hayError = true;
     });
   }
 
@@ -62,7 +66,10 @@ export class DispositivoPage implements OnInit {
     this.valvulaService.cambiarEstado(this.dispositivo.electrovalvulaId, true).then((result) => {
       this.valvulaService.listLogs(this.dispositivo.electrovalvulaId).then((result)=>{
         this.ultimoLog = result[0]
+        this.hayError = false;
       })
+    }).catch((error) => {
+      this.hayError = true;
     })
   }
 
@@ -73,8 +80,11 @@ export class DispositivoPage implements OnInit {
         this.valvulaService.listLogs(this.dispositivo.electrovalvulaId).then((result)=>{
           this.ultimoLog = result[0]
           this.actualizarValor(nuevaMedicion);
+          this.hayError = false;
         })
       })
+    }).catch((error) => {
+      this.hayError = true;
     })
   }
 
@@ -88,7 +98,7 @@ export class DispositivoPage implements OnInit {
           plotShadow: false
         }
         ,title: {
-          text: 'Sensor N° 1'
+          text: 'Sensor'
         }
 
         ,credits:{enabled:false}

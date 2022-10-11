@@ -10,6 +10,9 @@
       <ion-card-title>Mediciones del dispositivo</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-item *ngIf="hayError">
+        <ion-badge color="danger">Ocurrió un error</ion-badge>
+      </ion-item>
       <ion-item *ngFor="let medicion of mediciones">
         <ion-label> Fecha: {{medicion.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - Medicion: {{medicion.valor}} Db </ion-label>
       </ion-item>

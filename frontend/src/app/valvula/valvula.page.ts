@@ -12,6 +12,8 @@ import { ValvulaService } from '../services/valvula.service';
 export class ValvulaPage implements OnInit {
 
   public logs : Array<Log> = new Array<Log>();
+  public hayError: boolean = false;
+  
   constructor(private router:ActivatedRoute, private valvulaService:ValvulaService) { }
 
   ngOnInit() {
@@ -19,6 +21,8 @@ export class ValvulaPage implements OnInit {
 
     this.valvulaService.listLogs(parseInt(electroValvulaId)).then((result) => {
       this.logs = result
+    }).catch((err)=> {
+      this.hayError = true;
     });
   }
 

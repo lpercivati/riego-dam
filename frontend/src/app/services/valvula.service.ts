@@ -21,7 +21,7 @@ export class ValvulaService{
             nuevoEstado: nuevoEstado
         }
 
-        return this._http.post(this.BASE_PATH + "/log", body).toPromise();
+        return this._http.post(this.BASE_PATH + "/log", body).toPromise()
     }
     
 }

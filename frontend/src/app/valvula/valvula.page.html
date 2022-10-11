@@ -10,6 +10,9 @@
       <ion-card-title>Logs de la válvula</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-item *ngIf="hayError">
+        <ion-badge color="danger">Ocurrió un error</ion-badge>
+      </ion-item>
       <ion-item *ngFor="let log of logs">
         <ion-label> Fecha: {{log.fecha | date:'dd/MM/yyyy hh:mm:ss' }} - <strong>{{log.apertura ? 'Abierta' : 'Cerrada'}} </strong></ion-label>
       </ion-item>
