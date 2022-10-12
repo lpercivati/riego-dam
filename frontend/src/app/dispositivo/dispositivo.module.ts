@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DispositivoPageRoutingModule } from './dispositivo-routing.module';
 
 import { DispositivoPage } from './dispositivo.page';
+import { OpenButtonDirective } from '../open-button.directive'
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { DispositivoPage } from './dispositivo.page';
     IonicModule,
     DispositivoPageRoutingModule
   ],
-  declarations: [DispositivoPage]
+  declarations: [DispositivoPage, OpenButtonDirective]
 })
 export class DispositivoPageModule {}

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Riego App<ion-icon name="home" routerLink="../../" routerDirection="root" style="margin-left: 10px;"></ion-icon></ion-title>
+    <ion-title>Riego App<ion-icon name="home" routerLink="../../" routerDirection="root"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +20,7 @@
     </ion-card-content>
     <ion-card-content *ngIf="dispositivo">
       <ion-item>
-        <ion-button fill="outline" *ngIf="!ultimoLog || !ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
+        <ion-button appOpenButton fill="outline" *ngIf="!ultimoLog || !ultimoLog.apertura" (click)="abrirValvula()">Abrir electroválvula</ion-button>
         <ion-button fill="outline" *ngIf="ultimoLog && ultimoLog.apertura" (click)="cerrarValvula()">Cerrar electroválvula</ion-button>
       </ion-item>
       <ion-item>
